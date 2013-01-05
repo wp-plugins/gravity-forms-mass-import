@@ -5,7 +5,7 @@
  * Donate link: http://aryanduntley.com/donations
  * Description: Allows mass import of form entries derived from CSV files.
  * CSV headers are indicated if unkown in order to allow users to organize correctly structured CSV files.
- * Version: 1.0.1
+ * Version: 1.0.5
  * Author: Aryan Duntley
  * Author URI: http://www.aryanduntley.com/gravity-forms-mass-import
  * License: GPLv2 or later
@@ -136,7 +136,8 @@ require('parsecsv.lib.php');
 			$csv->last_form_id = max($lastnum);//$lastnum[sizeof($lastnum)-1];
 			$csv->form_using = $formnum;
 			$csv->actHeaders = $ararr;
-			$retarn = $csv->auto($_FILES['csv_file']['tmp_name'], true, null, ',', '"');
+			//$retarn = $csv->auto($_FILES['csv_file']['tmp_name'], true, null, ',', '"');
+			$retarn = $csv->parse_file($_FILES['csv_file']['tmp_name']);
 			//stuff here;
 			echo '<div class="updated" style="padding-bottom:10px;">'.$retarn.'</div>';
 		}else{
