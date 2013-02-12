@@ -551,7 +551,7 @@ class parseCSV {
 			}
 		}
 		*/
-		$this->total_of_rows = $rowcount;
+		$this->total_of_rows = $row_count;
 		return $this->total_of_rows . " rows of data have been imported.  Please check Forms->Entries to verify your data was imported correctly.";
 		//return $rows;
 		// Return row_count and complete message here.
