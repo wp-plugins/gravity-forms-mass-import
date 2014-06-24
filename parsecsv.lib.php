@@ -403,6 +403,7 @@ class parseCSV {
 									$entry_tracking_table =  $wpdb->prefix . "rg_lead";
 									$entry_standard_stuff =  $wpdb->prefix . "rg_lead_meta";
 									$actual_entry_data =  $wpdb->prefix . "rg_lead_detail";
+									$actual_entry_data_long =  $wpdb->prefix . "rg_lead_detail_long";
 									//Create a new rg_lead database entry:								
 									$_id = $this->last_form_id;
 									$_form_id = $this->form_using;
@@ -419,8 +420,14 @@ class parseCSV {
 									//transaction_type = NULL;
 									//$_status = 'active';
 									
-							$wpdb->query( $wpdb->prepare("INSERT INTO $entry_tracking_table (id, form_id, date_created, ip, source_url, user_agent, currency, created_by, status) VALUES (%d,%d,utc_timestamp(),%s,%s,%s,%s,{$_created_by},%s)",$_id, $_form_id, $_ip, $_source_url, $_user_agent, 'USD', 'active'));
-									
+							/*$wpdb->query( $wpdb->prepare("INSERT INTO $entry_tracking_table (id, form_id, date_created, ip, source_url, user_agent, currency, created_by, status) VALUES (%d,%d,utc_timestamp(),%s,%s,%s,%s,{$_created_by},%s)",$_id, $_form_id, $_ip, $_source_url, $_user_agent, 'USD', 'active'));*/
+							
+							$daterow = $row['actualPostDate'];
+                            if($daterow){$_created_date = gmdate("Y-m-d H:i:s", strtotime($daterow));}else{$_created_date = current_time('mysql');}
+                            $wpdb->query( $wpdb->prepare("INSERT INTO $entry_tracking_table (id, form_id, date_created, ip, source_url, user_agent, currency, created_by, status) VALUES (%d,%d,%s,%s,%s,%s,%s,{$_created_by},%s)",$_id, $_form_id, $_created_date, $_ip, $_source_url, $_user_agent, 'USD', 'active'));
+
+
+							
 							$wpdb->query( $wpdb->prepare("INSERT INTO $entry_standard_stuff(lead_id, meta_key, meta_value) VALUES(%d, %s, %s)", $this->last_form_id, 'gform_product_info', 'a:2:{s:8:"products";a:0:{}s:8:"shipping";a:2:{s:4:"name";s:0:"";s:5:"price";b:0;}}' ) );	
 									
 									//multiselect, list, checkbox
@@ -521,6 +528,11 @@ class parseCSV {
 														$_valu = trim($_valu);
 														$_valu = mysql_real_escape_string($_valu);
 														$wpdb->query( $wpdb->prepare("INSERT INTO $actual_entry_data(lead_id, form_id, field_number, value) VALUES(%d, %d, %f, %s)", $_id, $_form_id, $_field_num,$_valu) );
+														//Long data db entry provided by Will Fairhurst will@tic.co
+														if (strlen($_valu)>200) {
+															$last_lead_detail_id = $wpdb->insert_id;
+															$wpdb->query( $wpdb->prepare("INSERT INTO $actual_entry_data_long(lead_detail_id, value) VALUES(%d, %s)", $last_lead_detail_id,$_valu) );
+														}	
 													}	
 												}
 										}
@@ -551,7 +563,7 @@ class parseCSV {
 			}
 		}
 		*/
-		$this->total_of_rows = $rowcount;
+		$this->total_of_rows = $row_count-1;
 		return $this->total_of_rows . " rows of data have been imported.  Please check Forms->Entries to verify your data was imported correctly.";
 		//return $rows;
 		// Return row_count and complete message here.
