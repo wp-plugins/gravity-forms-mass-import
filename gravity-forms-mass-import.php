@@ -5,7 +5,7 @@
  * Donate link: http://aryanduntley.com/donations
  * Description: Allows mass import of form entries derived from CSV files.
  * CSV headers are indicated if unkown in order to allow users to organize correctly structured CSV files.
- * Version: 1.2
+ * Version: 1.2.1
  * Author: Aryan Duntley
  * Author URI: http://www.aryanduntley.com/gravity-forms-mass-import
  * License: GPLv2 or later
