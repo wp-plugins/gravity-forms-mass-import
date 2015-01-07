@@ -171,7 +171,7 @@ function get_me_all_forms(){
 }/*Gets the data from the database table for a specific form.  This data is stored as json, so the recursiveiteratoriterator parses that out.*/
 function get_meta_all_fields($id){
 	$fledarr = array();
-	$frmarr = RGFormsModel::get_form_meta_by_id($id);
+	$frmarr = RGFormsModel::get_form_meta_by_id($id);/*Changed from get_forms_by_id as noted by Redpik https://wordpress.org/support/profile/redpik*/
 	$fldobj = $frmarr[0]['fields'];
 	$iterator = new RecursiveIteratorIterator(new RecursiveArrayIterator($fldobj));
 	$i = 0;
