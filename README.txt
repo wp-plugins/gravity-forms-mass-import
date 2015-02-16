@@ -30,7 +30,7 @@ Allows for mass import of gravity forms entries from a CSV file.
 
 == Description ==
 
-NOTE:  The earliest version of Gravity Forms this plugin has been tested with is v1.6.3 and the latest is v1.6.12.
+NOTE:  THIS PLUGIN DOES NOT AND WILL NOT SUPPORT GF 1.9+.
 
 
 
