@@ -5,7 +5,7 @@
  * Donate link: http://aryanduntley.com/donations
  * Description: Allows mass import of form entries derived from CSV files.
  * CSV headers are indicated if unkown in order to allow users to organize correctly structured CSV files.
- * Version: 1.5
+ * Version: 1.5.1
  * Author: Aryan Duntley
  * Author URI: http://www.aryanduntley.com/gravity-forms-mass-import
  * License: GPLv2 or later
@@ -201,7 +201,16 @@ function mass_import_handler(){
 	//add_action('admin_print_scripts', 'the_admin_scripts');
 	//add_action('admin_print_styles', 'the_admin_styles');
 ?>
-<div style="padding: 5px 0 20px 0;"><img style="float:left;padding-right: 20px;" src="http://aryanduntley.com/wp-content/plugins/gravityforms/images/gravity-edit-icon-32.png"><h1>Import CSV</h1> <h2>choose which form you wish to import into:</h2></div>
+<div style="padding: 5px 0 20px 0;"><img style="float:left;padding-right: 20px;" src="http://aryanduntley.com/wp-content/plugins/gravityforms/images/gravity-edit-icon-32.png"><h1>Import CSV</h1>
+<?php
+$version_info = GFCommon::get_version_info( false );
+if(version_compare("1.9", $version_info['version'], '<')){
+?>
+<h2>This plugin does not support your version of Gravity Forms.</h2><p>Since I no longer support this plugin and will not make changes to compensate for the code changes in Gravity Forms 1.9+, for those of you wishing to continue using Gravity Forms and need similar functionality, you can visit <a href="https://gravityview.co/extensions/gravity-forms-entry-importer/?ref=141" target="_blank">GravityView.Co</a>.  They have developed a 1.9+ importer for gravity forms, along with many other gravity forms addons.</p>
+<?php
+}
+?>
+<h2>choose which form you wish to import into:</h2></div>
 <div style="clear:both;padding-bottom:20px"><form style="float: left; padding-left: 20px;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank"><input type="hidden" name="cmd" value="_s-xclick" /><input type="hidden" name="cpp_header_image" value="http://aryanduntley.com/donatemy.png" /><input type="hidden" name="page_style" value="paypal" /><input type="hidden" name="cpp_logo_image" value="http://aryanduntley.com/donatemy.png" /><input type="hidden" name="cpp_payflow_color" value="#FAFAFA" /><input type="hidden" name="cn" value="Feel free to add any notes or comments about the plugin! Please name the plugin you are donating to so I can keep track of which are most valuable to users." /><input type="hidden" name="cpp_headerback_color" value="#F0F0F0" /><input type="hidden" name="hosted_button_id" value="ZXSGVRM9DWEUY" /><input type="image" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" alt="PayPal - The safer, easier way to pay online!" /><img src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" alt="" width="1" height="1" border="0" /></form></div>
     <p>
             <label style="float:left;padding-top:3px;">Select which form you would like to import into</label>

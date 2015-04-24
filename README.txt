@@ -4,11 +4,11 @@ Contributors: Aryan Duntley, dunar21
 
 Plugin Name: Gravity Forms Mass Import
 
-Donate link: http://aryanduntley.com/plugins/gravity-forms-mass-import
+Donate link: http://worldpressrevolution.com/wpr_myplugins/gravity-forms-mass-import/
 
 Plugin URI: http://wordpress.org/extend/plugins/gravity-forms-mass-import/
 
-Author URI: http://aryanduntley.com/
+Author URI: http://worldpressrevolution.com/
 
 Tags: gravity forms, gravity forms import, import, csv import, gravity forms entries, gravity forms entries import, entries import, mass import, wordpress csv import, csv, csv import, import csv gravity forms 
 
@@ -16,7 +16,7 @@ Requires at least: 3.0.1
 
 Tested up to: 3.9.1
 
-Stable tag: 1.5
+Stable tag: 1.5.1
 
 License: GPLv2 or later
 
@@ -30,7 +30,7 @@ Allows for mass import of gravity forms entries from a CSV file.
 
 == Description ==
 
-NOTE:  THIS PLUGIN DOES NOT AND WILL NOT SUPPORT GF 1.9+.
+NOTE:  THIS PLUGIN DOES NOT AND WILL NOT SUPPORT GF 1.9+. For information on possible alternatives please visit the plugin site: [Aryan Duntley](http://worldpressrevolution.com/wpr_myplugins/gravity-forms-mass-import/ "Aryan Duntley Web Dev")
 
 
 
@@ -48,7 +48,7 @@ This plugin was created for users who wish to use Gravity Forms as an online dat
 
 
 
-Plugin site: [Aryan Duntley](http://aryanduntley.com/gravity-forms-mass-import "Aryan Duntley Web Dev")
+Plugin site: [Aryan Duntley](http://worldpressrevolution.com/wpr_myplugins/gravity-forms-mass-import/ "Aryan Duntley Web Dev")
 
 
 
